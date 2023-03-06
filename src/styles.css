@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lobster&family=Montserrat:ital@1&family=Noto+Sans+JP:wght@100;700;900&family=Roboto:wght@400;500;900&family=Rubik+80s+Fade&family=Rubik+Gemstones&display=swap');
+
+body{
+    background-image: url("./assets/front-view-finance-business-elements-assortment.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+header{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    height: 50px;
+    color: white;
+    padding: 4px;
+    font-size: medium;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(264deg, rgb(159 39 39) 0%, rgb(211 237 35) 0%, rgb(208 195 21) 0%, rgb(86 6 174 / 70%) 100%, rgb(1 28 255) 100%);
+}
+
+footer{
+    color: white;
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(4deg, #3b0808, #004373d4);
+}
+
+.nav span{
+    padding-top: 2px;
+    font-size: 20px;
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+}
