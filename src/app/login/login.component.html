@@ -9,16 +9,16 @@
   <h2>Sign in</h2>
   <form>
     <div class="user-box">
-      <input #acno id="u1" type="number"  name="uname"  [placeholder]="data1" required="">
+      <input [(ngModel)]="acno" id="u1" type="number"  name="uname"  [placeholder]="data1" required="">
       
     </div>
 
     
     <div class="user-box">
-      <input #psw id="p1" type="password" name="password"  placeholder="Password" required="">
+      <input [(ngModel)]="psw" id="p1" type="password" name="password"  placeholder="Password" required="">
       
     </div>
-    <a  (click)="login(acno,psw)" href="#">
+    <a  (click)="login()" href="#">
       <span></span>
       <span></span>
       <span></span>
