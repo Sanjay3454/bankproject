@@ -9,16 +9,16 @@
   <h2>Sign in</h2>
   <form>
     <div class="user-box">
-      <input id="u1" type="number"  name="uname" (change)="acnoChange($event)" [placeholder]="data1" required="">
+      <input #acno id="u1" type="number"  name="uname"  [placeholder]="data1" required="">
       
     </div>
 
     
     <div class="user-box">
-      <input id="p1" type="password" name="password" (change)="passChange($event)" placeholder="Password" required="">
+      <input #psw id="p1" type="password" name="password"  placeholder="Password" required="">
       
     </div>
-    <a  (click)="login()" href="#">
+    <a  (click)="login(acno,psw)" href="#">
       <span></span>
       <span></span>
       <span></span>
