@@ -1,0 +1,52 @@
+<div class="box">
+  <div class="login-box">
+    <h2>Register</h2>
+    <form>
+      <div class="user-box">
+        <input
+          [(ngModel)]="acno"
+          id="a1"
+          type="number"
+          name="acnum"
+          placeholder="account number"
+          required=""
+        />
+      </div>
+
+      <div class="user-box">
+        <input
+          [(ngModel)]="uname"
+          id="u1"
+          type="text"
+          name="user name"
+          placeholder="user name"
+          required=""
+        />
+      </div>
+      <div class="user-box">
+        <input
+          [(ngModel)]="psw"
+          id="p1"
+          type="password"
+          name="password"
+          placeholder="Password"
+          required=""
+        />
+      </div>
+
+      <a (click)="register()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        REGISTER
+      </a>
+    </form>
+    <div style="color: aliceblue">
+      <p>Already have an account &nbsp; <a href="">login</a></p>
+      <!--   <-- routerLink -->
+    </div>
+  </div>
+
+  <br />
+</div>

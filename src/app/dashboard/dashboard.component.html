@@ -1,0 +1,65 @@
+<p class="text-center bg-success">welcome mr /ms {{user}}</p>
+<div class="mt-2 p-3 w-50 text-center" style="color: blueviolet; background-color: lightslategrey;" >
+  <a routerLink="/transaction">view Transaction Details</a></div>
+
+<div class="container">
+<div class="row  ">
+    <div class="col-lg-6 col-sm-12 p-3 mt-4  ">
+<form class="form">
+    <p class="form-title">Deposit</p>
+     <div class="input-container">
+       <input id="d-num" name="acno1" [(ngModel)]="acno" placeholder="account number" type="number">
+      
+   </div>
+   <div class="input-container">
+       <input id="d-psw" name="psw1" [(ngModel)]="psw"  placeholder="password" type="password" >
+
+      
+     </div>
+     <div class="input-container">
+        <input id="d-amo" name="amn1"  [(ngModel)]="amnt" placeholder="Amount" type="">
+ 
+       
+      </div>
+
+      <button (click)="deposit()" class="submit " type="submit">
+    deposit
+   </button>
+
+   
+</form>
+
+</div>
+
+
+<!-- kkkkk -->
+
+<div class="col-lg-6  col-sm-12 p-3  mt-4 ">
+    <form class="form">
+        <p class="form-title">Withadraw</p>
+         <div class="input-container">
+           <input id="w-num" name="num2" [(ngModel)]="acno1"  placeholder="account number" type="number">
+          
+       </div>
+       <div class="input-container">
+           <input id="w-psw" name="psw2" [(ngModel)]="psw1"  placeholder="password" type="password">
+    
+          
+         </div>
+         <div class="input-container">
+            <input id="w-amo" name="amn2"  [(ngModel)]="amnt1"  placeholder="Amount" type="number">
+     
+           
+          </div>
+
+          <button (click)="withdraw()" class="submit" type="submit">
+        withdraw
+       </button>
+    
+       
+    </form>
+</div>
+
+</div>
+
+</div>

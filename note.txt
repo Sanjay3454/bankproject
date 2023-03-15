@@ -82,3 +82,79 @@ npm - node package manager  npm -v
                    ------------------        
                     2.1 ngModel [(ngModel)]="variable"
                              -FormsModule  -module used to apply ngModel
+
+
+                    path setting in Angular
+                    -----------------------
+                    path set in root module routing file 
+                    each page need dfrnt paths 
+                    landing page path is empty 
+
+
+                    Redirection in angular 
+                    -------------------------
+                  method - navigateByUrl(path)     
+                  class -Router 
+                  module - AppRoutingModule
+
+
+
+                  folder- file - class - methods
+                  package module     
+
+
+                  dependency injection 
+                  --------------------
+
+                  to use a method of class in another class 
+
+                  in constructor - accessspecifier reference:className
+                            
+                            
+                            
+                             access specifier -private / public 
+                             -private : can use the injecting class only in that class 
+                             -public : can use the injecting class in other classes of that file 
+
+                  angular services 
+                  ----------------
+
+                  its a file in angular
+                   all components can access the content of service file      
+                     
+                   -create     ng generate service filename        ng g s filename    
+
+
+                   Angular Directives
+                   ------------------
+                   used to manipulate DOM 
+
+                   1- component directives 
+                   2- structural directives 
+                        -*ngFor
+
+     Form validation in angular 
+     --------------------------
+
+     form creation in angular 
+           
+           1.template in angular 
+           2.model driven form 
+
+
+     model driven form 
+     -----------------
+
+
+     -reactive form 
+
+         -ReactiveFormsModule - module used to build model form    
+         -FormBuilder         - class used to build model form   
+
+         -a model contain  -form group 
+                            -array 
+                            -controller               
+
+
+
+                          
