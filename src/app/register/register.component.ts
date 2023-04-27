@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -18,31 +18,51 @@ export class RegisterComponent {
   //model for register form 
 
   registerForm=this.fb.group({
-    acno: [''],
-    uname: [''],
-    psw: ['']
+    acno: ['',[Validators.required,Validators.pattern('[0-9]+')]],
+    uname: ['',[Validators.required,Validators.pattern('[a-zA-Z]+')]] ,
+    psw:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]]
+    
     
   })
 
   register() {
- var acno = this.acno
- var uname= this.uname
- var psw = this.psw 
- 
-
-
- const result = this.ds.register(acno,uname,psw)
- if(result){
-  alert('registered')
-  this.router.navigateByUrl("")
-  
- }
- else{
-  alert('user already presnt')
- }
- 
-
-
-
+ var acno = this.registerForm.value.acno
+ var uname= this.registerForm.value.uname
+ var psw = this.registerForm.value.psw 
+if(this.registerForm.valid){
+this.ds.register(acno,uname,psw).subscribe((result:any)=>{
+alert(result.message)
+ this.router.navigateByUrl("")
+},
+result=>{
+  alert(result.error.message)
+}
+)
+}
+else{
+  alert("invalid form")
+}
   }
 }
+//   if(result){
+//    alert('registered')
+//    this.router.navigateByUrl("")
+   
+//   }
+//   else{
+//    alert('user already presnt')
+//   }
+  
+ 
+
+// }
+
+// else{
+//   alert('invalid form')
+// }
+
+
+
+
+
+ 

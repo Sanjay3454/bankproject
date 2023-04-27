@@ -1,10 +1,10 @@
 <div class="box">
   <div class="login-box">
     <h2>Register</h2>
-    <form>
+    <form [formGroup]="registerForm">
       <div class="user-box">
         <input
-          [(ngModel)]="acno"
+         formControlName="acno"
           id="a1"
           type="number"
           name="acnum"
@@ -13,9 +13,13 @@
         />
       </div>
 
+      <div *ngIf="this.registerForm.get('acno')?.errors&&this.registerForm.get('acno')?.touched " class="text-start ms-2">
+    <p class="text-danger">include numbers only</p>
+      </div>
+
       <div class="user-box">
         <input
-          [(ngModel)]="uname"
+        formControlName="uname"
           id="u1"
           type="text"
           name="user name"
@@ -23,9 +27,14 @@
           required=""
         />
       </div>
+
+      <div *ngIf="this.registerForm.get('uname')?.errors&&this.registerForm.get('uname')?.touched " class="text-start ms-2">
+        <p class="text-danger">include characters only</p>
+          </div>
+
       <div class="user-box">
         <input
-          [(ngModel)]="psw"
+        formControlName="psw"
           id="p1"
           type="password"
           name="password"
@@ -33,6 +42,10 @@
           required=""
         />
       </div>
+
+      <div *ngIf="this.registerForm.get('psw')?.errors&&this.registerForm.get('psw')?.touched " class="text-start ms-2">
+        <p class="text-danger">include characters and numbers </p>
+          </div>
 
       <a (click)="register()">
         <span></span>

@@ -7,6 +7,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     font-family:'Bebas Neue', cursive; ;
+
     
 }
 header{
@@ -153,3 +154,8 @@ header .header-right .hamburger div {
 }
 
 /* hshhsh */
+
+
+.s1{
+    opacity: 0;
+}

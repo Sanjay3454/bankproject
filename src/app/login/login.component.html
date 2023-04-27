@@ -17,17 +17,24 @@
 
         <div class="login-box">
           <h2>Sign in</h2>
-          <form >
+          <form [formGroup]="loginForm" >
             <div class="user-box">
-              <input [(ngModel)]="acno" id="u1" type="number"  name="uname"  [placeholder]="data1" required="">
+              <input formControlName="acno"  id="u1" type="number"  name="acno"  placeholder="account number" required="">
               
             </div>
-        
+            <div *ngIf="this.loginForm.get('acno')?.errors&&this.loginForm.get('acno')?.touched " class="text-start ms-2">
+              <p class="text-danger">include numbers only</p>
+                </div>
             
             <div class="user-box">
-              <input [(ngModel)]="psw" id="p1" type="password" name="password"  placeholder="Password" required="">
+              <input  formControlName="psw" id="p1" type="password" name="password"  placeholder="Password" required="">
               
             </div>
+
+            <div *ngIf="this.loginForm.get('psw')?.errors&&this.loginForm.get('psw')?.touched " class="text-start ms-2">
+              <p class="text-danger">include characters and numbers </p>
+                </div>
+                
             <a  (click)="login()">
               <span></span>
               <span></span>

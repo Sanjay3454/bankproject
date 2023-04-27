@@ -1,6 +1,7 @@
 import { DataService } from './../services/data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -19,26 +20,51 @@ export class LoginComponent {
   //   1002:{username:"thanu",acno:1002,password:"abc123",balance:0},
   //   1003:{username:"manu",acno:1003,password:"abc123",balance:0}
   // }
-  constructor(private router:Router,private ds:DataService){}
+  constructor(private router:Router,private ds:DataService,private fb:FormBuilder){}
+
+  loginForm=this.fb.group({
+    acno: ['',[Validators.required,Validators.pattern('[0-9]+')]],
+    
+    psw:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]]
+    
+    
+  })
   
   login(){
-    var acnum=this.acno
-    var psw=this.psw
-    const result =this.ds.login(acnum,psw)
-  
+    var acnum=this.loginForm.value.acno
+    var psw=this.loginForm.value.psw
+    if(this.loginForm.valid){
+     this.ds.login(acnum,psw).subscribe((result:any)=>{
+      localStorage.setItem("currentUser",result.currentUser),
+      localStorage.setItem("currentAcno",JSON.stringify (result.currentAcno)),
+      localStorage.setItem("token",JSON.stringify (result.token)),
 
-    if(result){
-      alert("login success")
-        this.router.navigateByUrl("dashboard")
-        //redirection 
+      alert(result.message)
+      this.router.navigateByUrl("dashboard")
+     },
+     result=>{
+      alert(result.error.message)
+     }
+     )
+    }
+  //   if(result){
+  //     alert("login success")
+  //       this.router.navigateByUrl("dashboard")
+  //       //redirection 
        
         
-      }
-      else{
-        alert("incorrect acno or password")
-      }
-  }
- 
+  //     }
+  //     else{
+  //       alert("incorrect acno or password")
+  //     }
+  //   }
+  //   else{
+  //     alert('invalid form')
+  //   }
+   
+
+  // }
+}
 
 //   acnoChange(event:any){
 //     // console.log(event.target.value);
@@ -77,7 +103,4 @@ export class LoginComponent {
 //   }
 
 
-
 }
-
-
